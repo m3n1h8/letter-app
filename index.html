@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="letter.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+    <title>LETTER</title>
+</head>
+<body>
+    <div class="container">
+        <div class="letter">
+            <div class="back-page" id="root">hi</div>
+            <div class="letter-content-container" id="parent" >
+                <h1 class="title-content">BẠN ĐANG MUỐN GỬI 1 BỨC THƯ CHO NGƯỜI THÂN CỦA MÌNH</h1>
+                <p class="content">Chúng tôi ở đây để giúp bạn<BR>tấm thư tay là điều tốt nhất cho người thân <br> hãy bắt đầu và gửi những lời yêu thương</p>
+                <button class="start">start</button>
+                <textarea type="text" class="enter-content" ></textarea>
+                <p id="new-content"></p>
+            </div>    
+
+
+            <div class="font-page">
+                <div class="head"></div>
+                <div class="body"></div>
+            </div>
+            
+        </div>
+    
+        <div class="letter-shadow"></div>
+
+        <div class="menu-start">
+            <nav class="ability-btn">
+                <button class="writing btn" onclick="writing()" >writing</button>
+                <button class="change-color btn" >color</button>
+                <button class="chose-family btn">style</button>
+                <button class="save btn"onclick="save()">save</button>
+            </nav>
+        </div>
+    </div>
+<script src="letter.js"></script>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+  AOS.init();
+</script>
+</body>
+</html>

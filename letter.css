@@ -1,0 +1,325 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    background:linear-gradient(180deg,rgb(255, 217, 223), pink, rgb(139, 80, 114));
+    position: relative;
+   
+    
+}
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px white;
+    transform-style: preserve-3d;
+}
+
+
+.letter{
+    width: 500px;
+    height: 300px;
+    border: solid 1px white;
+    border-bottom: whitesmoke;
+    position: absolute;
+    transform:rotate3d(0, 1, 0, 180deg);
+    transform-style: preserve-3d;
+    transition: all 2s ease;
+    
+    
+
+
+}
+
+
+.back-page{
+    position:absolute;
+    inset: 0;
+     background:linear-gradient(180deg,beige,beige, bisque, bisque,rgb(231, 205, 175));
+    transform: translate3d(0, 0, -1px) rotate3d(0,1,0, 180deg);
+    
+}
+
+.font-page{
+    position: absolute;
+    inset: 0;
+    transform:translate3d(0,0,2px);
+    transform-style: preserve-3d;
+
+}
+.head{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 33.33%;
+    background: red;
+    background:linear-gradient(180deg,beige, pink, pink);
+    clip-path: polygon( 0 0, 100% 0, 50% 100%);
+    transition: 1s linear 1s ;
+    transform-origin: top;
+   
+}
+.body{
+
+    position: absolute;
+    inset: 0;
+    border-top: solid 1px;
+    background:linear-gradient(180deg,beige, bisque, bisque, bisque,rgb(231, 205, 175));
+    clip-path: polygon(0 0, 50% 33.33%, 100% 0, 100% 100%, 0 100%);
+}
+.letter-shadow{
+    position: absolute;
+    bottom: 40px;
+    left: auto;
+    right: auto;
+    width: 400px ;
+    height : 50px ;
+    border-radius: 50%;
+    
+    background-color: rgb(95, 91, 91);
+    transform:rotate3d(0, 1, 0, 180deg);
+    transform-style: preserve-3d;
+    transition: all 2s ease;
+    filter: blur(10px);
+    opacity: 0.5;
+
+    
+}
+.letter2{
+    width: 500px;
+    height: 300px;
+    border: solid 1px white;
+    border-bottom: whitesmoke;
+    position: absolute;
+    transform:rotate3d(0, 1, 0, 0);
+    transform-style: preserve-3d;
+    transition: all 2s ease;
+}
+
+.letter3{
+    width: 500px;
+    height: 300px;
+    border: solid 1px white;
+    border-bottom: whitesmoke;
+    position: absolute;
+    
+    transform-style: preserve-3d;
+    transition:  2s ease;
+    transform: translate(0, 100px) ;
+}
+ .head2{
+  position: absolute;
+    top: 0;
+    width: 100%;
+    height: 33.33%;
+    background: red;
+    background:linear-gradient(180deg,beige, pink, pink);
+    clip-path: polygon( 0 0, 100% 0, 50% 100%);
+    
+    transform-origin: top;
+    transform:translate3d(0,0,-3px) rotate3d(1,0,0, 180deg);
+    transition: 1s linear 1s ;
+}
+.letter-content-container{
+    position: absolute;
+    inset: 20px;
+    background-color: rgb(186, 186, 162);
+    transform:translate3d(0,0,1px);
+    transform-style: preserve-3d;
+    border-radius: 4px;
+    transition: 1s ease;
+}
+  
+
+ .letter-content-container2{
+    position: absolute;
+    inset: 20px;
+    background-color: rgb(186, 186, 162);
+    transform:translate3d(0,-200px,1px);
+    transform-style: preserve-3d;
+    border-radius: 4px;
+    
+
+    transition: 1s ease 2s;
+}
+.letter-content-container2b{
+    position: absolute;
+    inset: 20px;
+    background-color: rgb(186, 186, 162);
+    transform:translate3d(0,-200px,1px);
+    transform-style: preserve-3d;
+    border-radius: 4px;
+    
+
+    transition: 1s ease;
+}
+
+.letter-content-container3{
+    position: absolute;
+    inset: 20px;
+    background-color: rgb(229, 229, 206);
+    transform:translate3d(0,-300px,1px) ;
+    transform-style: preserve-3d;
+    border-radius: 4px;
+    transition: 2s ease ;
+    display: flex;
+    
+    overflow: hidden;  
+}
+.letter-content-container4{
+    position: absolute;
+    inset: 20px;
+    background-color: rgb(229, 229, 206);
+    transform:translate3d(0,-300px,10px) scale(1.1) ;
+    transform-style: preserve-3d;
+    border-radius: 4px;
+    border: solid 2px white;
+    transition: 2s ease ;
+    
+    
+    overflow: hidden;  
+}
+.letter-shadow2{  
+    position: absolute;
+    bottom: 40px;
+    left: auto;
+    right: auto;
+    width: 400px ;
+    height : 50px ;
+    border-radius: 50%;
+    
+    background-color: rgb(95, 91, 91);
+    
+    transform-style: preserve-3d;
+    transition: all 2s ease;
+    filter: blur(10px);
+    opacity: 0.5;
+    transform: rotate3d(0, 1, 0, 0deg);
+}
+
+
+
+
+@media( max-width: 500px){
+ .letter{
+    width: 290px;
+    height: 180px;
+    border: solid 1px white;
+    border-bottom: whitesmoke;
+    position: absolute;
+    transform:rotate3d(0, 1, 0, 180deg);
+    transform-style: preserve-3d;
+    transition: all 2s ease;}
+  .letter-shadow{
+    position: absolute;
+    bottom: 90px;
+    left: auto;
+    right: auto;
+    width: 250px ;
+    height : 30px ;
+    border-radius: 50%;
+    
+    background-color: rgb(95, 91, 91);
+    transform:rotate3d(0, 1, 0, 180deg);
+    transform-style: preserve-3d;
+    transition: all 2s ease;
+    filter: blur(10px);
+    opacity: 0.5;}
+  .letter:hover .letter-content-container{
+    transform: translate(0, -200px );
+    transition: 1s ease 2s;
+
+    
+}
+}
+
+
+
+.menu-start{
+    display: none;
+    position: absolute;
+    inset: 0;
+    background: rgb(169, 162, 162,0.8);
+    transform: translate3d(0,0, 4px);
+    transition: all 1s ease;
+}
+.ability-btn{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 30px;
+    top: 35%;
+   
+}
+.btn{
+    
+    margin-bottom: 1em;
+    border: none;
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    opacity: 0;
+    
+    
+   
+}
+
+    
+
+
+.bold{
+    border: solid 2px pink;
+    color: pink;
+}
+.title-content{
+     padding-left: 5%;
+    color: rgb(36, 184, 36);
+}
+.content{
+    padding-left: 5%;
+}
+
+.start{
+    background-color: rgb(36, 184, 36);
+    
+    width: 40%;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 30px;
+    color: red;
+    display: inline-block;
+    cursor: pointer;
+}
+.start:hover{
+    background: transparent;
+}
+.enter-content{
+    display: none;
+    background-color: transparent;
+    color: green;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+
+}
+#new-content{
+    display: none;
+    width: 100%;
+    height: 100%;
+    border: solid 1px;
+    color:green;
+    font-family: 'Courier New', Courier, monospace;
+    font-size:30px;
+}
+
+
+
