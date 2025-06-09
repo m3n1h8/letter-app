@@ -32,8 +32,6 @@
 
   }
 
-
-
   startBtn.addEventListener("click",floatContent)
 
   function floatContent(){ 
@@ -85,7 +83,8 @@
   }
 
 
-
+//
+// tô đậm nút khi ấn
  for(let i=0;i< Btn.length;i++){
    Btn[i].addEventListener("click",()=>{
      
@@ -97,33 +96,76 @@
    })
 
  }
+
+
+ //
+ // nút viết bài 
  function writing(){
-   input.style.display="block"
-   input.focus();
-   initialContent.innerHTML=""
-   initialTitleContent.innerHTML=""
-   startBtn.style.display="none"
-   newContent.style.display="none"
+    input.style.display="block"
+    input.focus();
+    initialContent.innerHTML=""
+    initialTitleContent.innerHTML=""
+    startBtn.style.display="none"
+    newContent.style.display="none"  
+   }
 
-    
+
+
+   //
+   // nút chọn  màu 
+   const inputColor= document.getElementById("input-color");
+      
+      
+    function color(){
+      inputColor.classList.toggle("hide-color")
+      menuFamily.classList.remove("grid")
+    }
+
+      inputColor.oninput=()=>{
+        input.style.color=inputColor.value
+        newContent.style.color=inputColor.value
+
+      }
+      
+
+
+
+ //
+ // nút chọn mẫu chữ     
+const familyNumber = document.querySelectorAll(".family")
+
+for( let i= 0;i <familyNumber.length;i++){
+familyNumber[i].addEventListener("click",()=>{
+  for(let a=0; a< familyNumber.length; a++){
+    if(a != i ){familyNumber[a].classList.remove("bold")}
   }
+  familyNumber[i].classList.toggle("bold")
 
+  input.style.fontFamily= window.getComputedStyle(familyNumber[i]).fontFamily
+})
+}
 
+const menuFamily= document.querySelector(".menu-family")
+
+function choseFamily(){
+  menuFamily.classList.toggle("grid")
+  inputColor.classList.add("hide-color")
+}
+      
+
+//
+// nút lưu
   function save(){
     if(!input.value){alert("please full fill ")}
     else{
       newContent.style.display="block" 
-  const inputContent=input.value.replace(/\n/g, "<br>");
-  input.style.display="none"
-  newContent.innerHTML=inputContent
+      input.style.display="none"
+      newContent.innerText=input.value
+      newContent.style.color=input.style.color
+      newContent.style.fontFamily=input.style.fontFamily
      setTimeout(returnLetter(),1000)
    
-      
-  }
-  }
-
-
-  function returnLetter(){
+       function returnLetter(){
 
     saveBtn.style.opacity="0"
     saveBtn.style.transform="translate(-30px , 0px)"
@@ -175,6 +217,8 @@
 
 
   }
-  
+  }
+  }
 
 
+ 

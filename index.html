@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="letter.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Pacifico&family=Poppins&family=Roboto&family=Satisfy&display=swap" rel="stylesheet">
+
     <title>LETTER</title>
 </head>
 <body>
@@ -13,12 +15,14 @@
         <div class="letter">
             <div class="back-page" id="root">hi</div>
             <div class="letter-content-container" id="parent" >
-                <h1 class="title-content">BẠN ĐANG MUỐN GỬI 1 BỨC THƯ CHO NGƯỜI THÂN CỦA MÌNH</h1>
-                <p class="content">Chúng tôi ở đây để giúp bạn<BR>tấm thư tay là điều tốt nhất cho người thân <br> hãy bắt đầu và gửi những lời yêu thương</p>
+                
+                <h1 class="title-content">BẠN ĐANG MUỐN GỬI 1 BỨC THƯ </h1>
+               <p class="content">Chúng tôi ở đây để giúp bạn<br>adg<BR>ksdf<BR>adsgafg</p>
                 <button class="start">start</button>
+                
                 <textarea type="text" class="enter-content" ></textarea>
                 <p id="new-content"></p>
-            </div>    
+            </div>        
 
 
             <div class="font-page">
@@ -33,18 +37,31 @@
         <div class="menu-start">
             <nav class="ability-btn">
                 <button class="writing btn" onclick="writing()" >writing</button>
-                <button class="change-color btn" >color</button>
-                <button class="chose-family btn">style</button>
-                <button class="save btn"onclick="save()">save</button>
+                <button class="change-color btn" onclick="color()">color</button>
+                <button class="chose-family btn" onclick="choseFamily()">style</button>
+                <button class="save btn" onclick="save()">save</button>
+                
             </nav>
+            <input type="color" value="#24B824" id="input-color" class="hide-color">
+            <div class="menu-family">
+                <div class="family family1">Dear You</div>
+                <div class="family family2">Dear You</div>
+                <div class="family family3">Dear You</div>
+                <div class="family family4">Dear You</div>
+                <div class="family family5">Dear You</div>
+                <div class="family family6">Dear You</div>
+                
+            </div>
         </div>
     </div>
 <script src="letter.js"></script>
-
-
+<!--thư viện chọn màu pickr-->
+   <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr"></script>
+<!--AOS-->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
   AOS.init();
 </script>
+
 </body>
 </html>
