@@ -1,5 +1,6 @@
  
-
+  const container= document.querySelector(".container")
+    const slideBox= document.querySelector(".slide-box")
   const startBtn= document.querySelector(".start")
   let letterContentContainer=document.querySelector(".letter-content-container")
   const menuStart=document.querySelector(".menu-start")
@@ -15,20 +16,35 @@
   const saveBtn=document.querySelector(".save")
   const Btn=document.querySelectorAll(".btn")
   const newContent=document.getElementById("new-content")
+  const soundPage=document.getElementById("sound-page")
 
 
   letter.addEventListener("click",rotate )
 
-  function rotate(){
+  function rotate(){ 
+    letter.classList.remove("item-slide")
+      container.appendChild(letter)
      
-      letter.classList.add("letter2")
+      
+      slideBox.style.display="none"
+
+      setTimeout(()=>{
+              letter.classList.add("letter2")
       letter.classList.remove("letter")
       letterContentContainer.classList.add("letter-content-container2")
       letterContentContainer.classList.remove("letter-content-container")
 
       head.setAttribute("class","head2")
+      
+      setTimeout(()=>{
+        soundPage.play();
+        ;},450)
+        
+      
       letterShadow.setAttribute("class","letter-shadow2")
-     
+     letter.removeEventListener("click",rotate )
+      },10)
+
 
   }
 
@@ -39,7 +55,8 @@
     letterContentContainer.classList.remove("letter-content-container2")
     letter.classList.add("letter3")
     letter.classList.remove("letter2")
-   
+    
+      
 
       setTimeout(()=>{
           menuStart.style.display="block" },3000)
@@ -158,6 +175,7 @@ function choseFamily(){
   function save(){
     if(!input.value){alert("please full fill ")}
     else{
+      letter.addEventListener("click",rotate )
       newContent.style.display="block" 
       input.style.display="none"
       newContent.innerText=input.value

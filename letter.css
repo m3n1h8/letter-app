@@ -21,15 +21,74 @@ body{
     border: solid 1px white;
     transform-style: preserve-3d;
 }
+.slide-box{
+      position: relative;
+      display: flex;
+      justify-content: center;
+       width: 500px;
+       height: 300px;
+      transform-style: preserve-3d;
+      transform: rotateX(-15deg);
+}
+.slide{
+       background-color:transparent;
+       transform:perspective(1000px) ;
+       width: 500px;
+       height: 300px;
+       position: absolute;
+       top: 0px;
+       transform-style: preserve-3d;
+       animation: rotate 10s infinite linear;
+       display: flex;
+       justify-content: center;
+}
+@keyframes rotate{
+      from{
+        transform:  perspective(1000px) rotateY(0) 
+      }
+      to{
+        transform:  perspective(1000px) rotateY(360deg) 
+      }
+    }
+.item-slide{
+    
+      
+      width: 300px ;
+      height: 180px;
+      position: absolute;
+      bottom: 50px;
+    
+}
+.item1{
+    background-color: aquamarine;
+    transform:rotateY(0deg) translateZ(300px)  ;
+    
+}
+.item2{
+    background-color: rgb(198, 89, 21);
+    transform:rotateY(72deg) translateZ(300px) ;
+}
+.item3{
+    background-color: rgb(142, 165, 27);
+    transform:rotateY(144deg) translateZ(300px) ;
+}
+.item4{
+    background-color: rgb(255, 127, 210);
+    transform:rotateY(216deg) translateZ(300px) ;
+}
+.item5{
+    
+    transform: rotateY(288deg) translateZ(300px)  ;
+}
 
 
 .letter{
-    width: 500px;
-    height: 300px;
+    width: 300px;
+    height: 180px;
     border: solid 1px white;
     border-bottom: whitesmoke;
     position: absolute;
-    transform:rotate3d(0, 1, 0, 180deg);
+    /*transform:rotate3d(0, 1, 0, 180deg);*/
     transform-style: preserve-3d;
     transition: all 2s ease;
     
