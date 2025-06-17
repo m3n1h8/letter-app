@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>READ</title>
+     <link rel="stylesheet" href="letter.css">
+     <link rel="stylesheet" href="read.css">
+     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Pacifico&family=Poppins&family=Roboto&family=Satisfy&display=swap" rel="stylesheet">
+
+</head>
+<body>
+     <div class="container">
+        <div class="logo"><ion-icon name="mail-outline" class="icon-logo"></ion-icon></div>
+        <div class="read-letter">
+
+            <div class="back-page" id="root"></div>
+
+            <div class="letter-content-container" id="parent" >
+                <p id="read-content"></p>
+            </div>
+
+            <div class="font-page">
+                <div class="head"></div>
+                <div class="body"></div>
+            </div>
+        </div>        
+    
+        <div class="letter-shadow"></div>
+
+        <div id="move-page"><a href="index.html">response</a></div>
+
+
+
+
+
+
+    <script >
+        const movePageBtn= document.getElementById("move-page")
+  const container= document.querySelector(".container")
+  let letterContentContainer=document.querySelector(".letter-content-container")
+  const letter= document.querySelector(".read-letter")
+  const head= document.querySelector(".head")
+  const letterShadow= document.querySelector(".letter-shadow")
+  const initialTitleContent=document.querySelector(".title-content")
+  const initialContent=document.querySelector(".content")
+  const soundPage=document.getElementById("sound-page")
+  const readContent=document.getElementById("read-content")
+
+  const params = new URLSearchParams(window.location.search)
+  const id=params.get("id")
+
+  
+
+  letter.addEventListener("click",rotate )
+
+  function rotate(){
+
+    fetch(`https://api.jsonbin.io/v3/b/${id}/latest` ,{
+    method: "GET",
+    headers:{
+        "X-Access-Key": "$2a$10$jcTFWdrVTyEvPPqaOa/j9OURzv/IbGEHkQ/RWrfqvPah7kTjEWyX." ,
+        }
+      }
+    )
+    .then(res=>res.json())
+    .then(data=>{
+        readContent.innerHTML = data.record.message,
+        readContent.style.color = data.record.color,
+        readContent.style.fontFamily = data.record.family
+    })
+    .catch(err=>{
+        alert(err)
+    })
+
+  
+     
+  
+      letter.setAttribute("class","letter2")
+      //letter.classList.remove("read-letter")
+      letterContentContainer.classList.add("letter-content-container2")
+      letterContentContainer.classList.remove("letter-content-container")
+
+      head.setAttribute("class","head2")
+      
+      setTimeout(()=>{
+        soundPage.play();
+        ;},400)
+        setTimeout(()=>{
+            movePageBtn.style.opacity=1;
+             movePageBtn.style.transform="translateY(-40px)";
+
+        },3500)
+         
+        
+      
+      letterShadow.setAttribute("class","letter-shadow2")
+     letter.removeEventListener("click",rotate )
+  }
+
+  
+
+    </script>
+    <script  type = "module"  src = "https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" > </script> 
+    <script  nomodule  src = "https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" > </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        </script>
+</body>
+</html>

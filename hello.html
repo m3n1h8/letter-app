@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Viết thư</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    input, textarea { width: 100%; padding: 8px; margin-bottom: 10px; }
+    button { padding: 10px 20px; }
+    #ketQua { margin-top: 20px; color: green; }
+  </style>
+</head>
+<body>
+  <h1>📨 Gửi Thư</h1>
+
+  <!-- Ô nhập tiêu đề thư -->
+  <label for="tieuDe">Tiêu đề:</label>
+  <input id="tieuDe" placeholder="Nhập tiêu đề thư">
+
+  <!-- Ô nhập nội dung thư -->
+  <label for="noiDung">Nội dung:</label>
+  <textarea id="noiDung" rows="6" placeholder="Nhập nội dung thư"></textarea>
+
+  <!-- Ô nhập tên người gửi -->
+  <label for="nguoiGui">Người gửi:</label>
+  <input id="nguoiGui" placeholder="Tên bạn là gì?">
+
+  <!-- Nút gửi thư -->
+  <button id="btnGui">Gửi thư</button>
+
+  <!-- Hiển thị kết quả (link hoặc lỗi) -->
+  <div id="ketQua"></div>
+
+  <script>
+    document.getElementById("btnGui").addEventListener("click", async () => {
+      // 1. Lấy giá trị từ các ô input
+      const tieuDe = document.getElementById("tieuDe").value.trim();
+      const noiDung = document.getElementById("noiDung").value.trim();
+      const nguoiGui = document.getElementById("nguoiGui").value.trim();
+      const ketQuaEl = document.getElementById("ketQua");
+      ketQuaEl.textContent = "";  // reset thông báo
+
+      // 2. Kiểm tra nhập liệu
+     // if (!tieuDe || !noiDung || !nguoiGui) {
+    //    alert("Vui lòng nhập đầy đủ tiêu đề, nội dung và tên người gửi.");
+    //    return;
+    //  }
+
+      // 3. Chuẩn bị dữ liệu gửi lên JSONBin
+      const payload = {
+        record: { tieuDe, noiDung, nguoiGui },
+        private: true       // true = bin riêng tư, false = bin công khai
+      };
+
+      try {
+        // 4. Gửi POST tới JSONBin
+       // const response = await 
+        fetch("https://api.jsonbin.io/v3/b", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Access-Key": "$2a$10$jcTFWdrVTyEvPPqaOa/j9OURzv/IbGEHkQ/RWrfqvPah7kTjEWyX."  // ← THAY BẰNG Access Key
+          },
+          body: JSON.stringify(payload)
+        }).then(res=>res.json())
+        .then(data => {
+                  alert("Đã tạo thư thành công!");
+                  alert("ID của thư:"+ data.metadata.id);})
+
+        // 5. Kiểm tra HTTP status
+      //  if (!response.ok) {
+      //    const errorText = await response.text();
+       //   throw new Error(`HTTP ${response.status}: ${errorText}`);
+      //  }
+
+        // 6. Phân tích JSON trả về
+        // const data = await response.json();
+       // console.log("Phản hồi từ JSONBin:", data);
+
+        // 7. Lấy ID và tạo link chia sẻ
+      //  const binId = data.metadata.id;
+       // const link = `https://jsonbin.io/v/${binId}`;
+
+        // 8. Hiển thị link
+     //   ketQuaEl.innerHTML = `
+      //    ✅ Thư đã tạo thành công!<br>
+       //   Link chia sẻ: 
+      // <a href="${link}" target="_blank">${link}</a>
+        //`;
+
+      } catch (err) {
+        console.error("Lỗi khi gửi thư:", err);
+        ketQuaEl.style.color = "red";
+        ketQuaEl.textContent = "❌ Có lỗi xảy ra: " + err.message;
+     }
+    }
+);
+  </script>
+</body>
+</html>

@@ -1,6 +1,6 @@
  
   const container= document.querySelector(".container")
-    const slideBox= document.querySelector(".slide-box")
+  const slideBox= document.querySelector(".slide-box")
   const startBtn= document.querySelector(".start")
   let letterContentContainer=document.querySelector(".letter-content-container")
   const menuStart=document.querySelector(".menu-start")
@@ -38,7 +38,7 @@
       
       setTimeout(()=>{
         soundPage.play();
-        ;},450)
+        ;},400)
         
       
       letterShadow.setAttribute("class","letter-shadow2")
@@ -176,8 +176,11 @@ function choseFamily(){
     if(!input.value){alert("please full fill ")}
     else{
       letter.addEventListener("click",rotate )
-      newContent.style.display="block" 
-      input.style.display="none"
+     // newContent.style.display="block" 
+    //  input.style.display="none"
+
+    
+      
       newContent.innerText=input.value
       newContent.style.color=input.style.color
       newContent.style.fontFamily=input.style.fontFamily
@@ -223,19 +226,54 @@ function choseFamily(){
 
     setTimeout(()=>{
    
-    letter.setAttribute("class","letter")
+    letter.setAttribute("class","read-letter")
 
       head.setAttribute("class","head")
     
       letterContentContainer.setAttribute("class","letter-content-container")
    
-      letterShadow.setAttribute("class","letter-shadow")
-     
+      letterShadow.setAttribute("class","letter-shadow");
+
+    post()
+
     },4000)
 
 
   }
   }
+  }
+
+  
+      
+
+ // const message=input.value
+ // const postBox={
+ //     record: newContent.innerText ,
+  //  }   
+  function post(){
+    const postBox={
+     message: input.value,
+     color: input.style.color,
+     family: input.style.fontFamily,
+    }
+    fetch("https://api.jsonbin.io/v3/b",{
+              method: "POST",
+              headers:{
+                  "Content-Type":"application/json",
+                  "X-Access-Key": "$2a$10$jcTFWdrVTyEvPPqaOa/j9OURzv/IbGEHkQ/RWrfqvPah7kTjEWyX." ,
+                  "X-Bin-Private": false,
+              },
+              body: JSON.stringify(postBox)
+          }
+          )
+          .then(res=>res.json())
+          .then(data=>{
+            alert("Save successful");
+            alert("Link of your reading PAGE : "+location.origin +"/read.html?id="+ data.metadata.id)
+          })
+          .catch(error=> {
+            alert(error)
+          })
   }
 
 
