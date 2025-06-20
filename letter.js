@@ -29,8 +29,9 @@
       slideBox.style.display="none"
 
       setTimeout(()=>{
-              letter.classList.add("letter2")
-      letter.classList.remove("letter")
+     // letter.classList.add("letter2")
+    //  letter.classList.remove("letter")
+      letter.setAttribute("class","letter2")
       letterContentContainer.classList.add("letter-content-container2")
       letterContentContainer.classList.remove("letter-content-container")
 
@@ -48,6 +49,9 @@
 
   }
 
+
+ //
+ // nút start
   startBtn.addEventListener("click",floatContent)
 
   function floatContent(){ 
@@ -234,7 +238,8 @@ function choseFamily(){
    
       letterShadow.setAttribute("class","letter-shadow");
 
-    post()
+    post();
+    
 
     },4000)
 
@@ -246,10 +251,8 @@ function choseFamily(){
   
       
 
- // const message=input.value
- // const postBox={
- //     record: newContent.innerText ,
-  //  }   
+ //
+ // hàm gửi dữ liệu lên jsonbin   
   function post(){
     const postBox={
      message: input.value,
@@ -268,12 +271,29 @@ function choseFamily(){
           )
           .then(res=>res.json())
           .then(data=>{
+            const link = location.origin +"/letter-app/read.html?id="+ data.metadata.id
             alert("Save successful");
-            alert("Link of your reading PAGE : "+location.origin +"/read.html?id="+ data.metadata.id)
+            alert("Link of your reading PAGE : "+ link);
+            document.getElementById("link").innerText=link;
+            document.querySelector(".link-box").style.display="block";
           })
           .catch(error=> {
             alert(error)
           })
+  }
+
+
+  //
+  // hàm copy link
+  function copy() {
+    const link =document.getElementById("link").innerText;
+    navigator.clipboard.writeText(link)
+      .then(() => {
+        alert("Link copied to clipboard: " + link);
+      })
+      .catch(err => {
+        alert("Failed to copy link: " + err);
+      });
   }
 
 
