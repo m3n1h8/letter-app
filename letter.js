@@ -22,11 +22,11 @@
   letter.addEventListener("click",rotate )
 
   function rotate(){ 
-    letter.classList.remove("item-slide")
-      container.appendChild(letter)
+  //  letter.classList.remove("item-slide")
+     // container.appendChild(letter)
      
       
-      slideBox.style.display="none"
+    //  slideBox.style.display="none"
 
       setTimeout(()=>{
      // letter.classList.add("letter2")
@@ -238,7 +238,11 @@ function choseFamily(){
    
       letterShadow.setAttribute("class","letter-shadow");
 
-    post();
+
+      setTimeout(()=>{
+        post()
+      },1400)
+    ;
     
 
     },4000)
@@ -272,9 +276,10 @@ function choseFamily(){
           .then(res=>res.json())
           .then(data=>{
             const link = location.origin +"/letter-app/read.html?id="+ data.metadata.id
-            alert("Save successful");
-            alert("Link of your reading PAGE : "+ link);
+           // alert("Save successful");
+          //  alert("Link of your reading PAGE : "+ link);
             document.getElementById("link").innerText=link;
+            document.getElementById("link-preview").href=link;
             document.querySelector(".link-box").style.display="block";
           })
           .catch(error=> {
@@ -289,7 +294,7 @@ function choseFamily(){
     const link =document.getElementById("link").innerText;
     navigator.clipboard.writeText(link)
       .then(() => {
-        alert("Link copied to clipboard: " + link);
+        alert("Đã copy :  " + link);
       })
       .catch(err => {
         alert("Failed to copy link: " + err);
