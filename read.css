@@ -28,3 +28,16 @@
     
 
  }
+ @media( max-width: 500px){
+   #read-content{
+        font-size: 15px;
+    }
+  .logo{
+    left: 10px;  
+ }
+ .icon-logo{
+    font-size: 30px;
+    border-bottom: 3px solid #ffffff;
+    border-left: 3px solid #ffffff;
+ }
+ }
